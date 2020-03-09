@@ -1,0 +1,213 @@
+.posts{
+    @extend .about;
+    &_content{
+        @extend .about;
+        padding: 80px 0;
+        border-bottom: 2px solid $b-color;
+        @include media(992){
+            padding: 50px 0;
+        }
+        @include media(576){
+            padding: 30px 0;
+        }
+    }
+    &_items{
+        @extend .about;
+        @include flex(flex, null, $flex-c, column);
+        position: relative;
+        margin: 50px 0;
+        @include media(992){
+            margin-bottom: 130px;
+        }
+        @include media(576){
+            @include wh(null, 200px);
+            margin: 30px 0;
+        }
+        &::before{
+            position: absolute;
+            content: '';
+            @include wh(2px, 100%);
+            background: $dark;
+            top: 0;
+            @include media(992){
+                left: 3%;
+            }
+        }
+        &-article{
+            @include wh(50%, 150px, null, min-);
+            align-self: flex-end;
+            position: relative;
+            @include flex(flex);
+            padding-left: 83px;
+            @include media(992){
+                @include wh(97%);
+            }
+            @include media(576){
+                @include wh(100%, 100%);
+                padding: 0 !important;
+                margin: 0 !important;
+                position: absolute;
+                left: 0;
+                top: 0;
+                opacity: 0;
+                transition: opacity 1s;
+                &.active{
+                    opacity: 1;
+                }
+            }
+            &::before{
+                position: absolute;
+                content: '';
+                @include wh(36px, 36px);
+                background: white;
+                border: 2px solid black;
+                border-radius: 50%;
+                left: -20px;
+                top: -2px
+            }
+            &::after{
+                position: absolute;
+                content: '';
+                @include wh(16px, 16px);
+                background: $red;
+                border: 2px solid black;
+                border-radius: 50%;
+                left: -10px;
+                top: 8px;
+            }
+            &:nth-of-type(2n){
+                align-self: flex-start;
+                margin-top: -55px;
+                margin-bottom: 96px;
+                padding: 0 83px 0 0;
+                @include media(992){
+                    align-self: flex-end;
+                    padding: 0 0 0 83px;
+                    margin: 30px 0;
+                }
+                &:last-child{
+                    margin-bottom: 0;
+                    @include media(992){
+                        margin-bottom: -130px;
+                    }
+                }
+                &::before{
+                    right: -20px;
+                    bottom: -2px;
+                    @include media(992){
+                        right: auto;
+                        bottom: auto;
+                        left: -20px;
+                        top: -2px;
+                    }
+                }
+                &::after{
+                    right: -10px;
+                    bottom: 8px;
+                    @include media(992){
+                        right: auto;
+                        bottom: auto;
+                        left: -10px;
+                        top: 8px;
+                    }
+                }
+                &::before,
+                &::after,
+                .posts_items-text::before{
+                    left: auto;
+                    top: auto;
+                }
+                .posts_items-text::before{
+                    transform: rotate(177deg);
+                    right: -39px;
+                    bottom: 23px;
+                    @include media(992){
+                        right: auto;
+                        bottom: auto;
+                        left: -39px;
+                        top: 23px;
+                        transform: rotate(-3deg);
+                    }
+                }
+            }
+        }
+        &-text{
+            @extend .about;
+            background: $dark;
+            border-radius: 7px;
+            position: relative;
+            padding: 15px;
+            @include flex(flex, null, null, column);
+            @include media(576){
+                @include flex(null, center, center);
+                text-align: center;
+            }
+            &::before{
+                position: absolute;
+                content: '';
+                @include wh(0, 0);
+                border-top: 32px solid $dark;
+                border-left: 42px solid  transparent;
+                transform: rotate(-3deg);
+                left: -39px;
+                top: 23px;
+            }
+            h4{
+                @include flex(flex, null, $flex-c);
+                a{
+                    @include text(#fff, null, $f500, 500);
+                    margin-right: 15px;
+                }
+                .heading{
+                    @include text(null, 22px);
+                }
+                .category{
+                    @include text(null, 20px);
+                    opacity: 0.8;
+                }
+            }
+            .date{
+                @include text($red, 18px, $f400, 400);
+                margin: 15px 0;
+            }
+            p{
+                @include text(#fff, 16px, $f400, 400);
+            }
+
+        }
+    }
+    &_btn{
+        @extend .about;
+        @include flex(none, $flex-c);
+        @include media(576){
+            display: flex;
+        }
+        &-left,
+        &-right{
+            @include wh(40px, 40px);
+            border: 2px solid black;
+            background: $red;
+            outline: none;
+            @include text($dark, 25px);
+            border-radius: 10px;
+            box-shadow: 0 0 5px 0 $dark;
+            cursor: pointer;
+            margin: 0 10px;
+            transition: all 0.5s;
+            text-shadow: 0 0 5px #ffffff;
+            &:hover{
+                box-shadow: 0 0 0 0;
+                border-radius: 50%;
+            }
+        }
+    }
+}
+
+.posts_items-text::before,
+.posts_items-article::before,
+.posts_items-article::after,
+.posts_items::before{
+    @include media(576){
+        display: none;
+    }
+}

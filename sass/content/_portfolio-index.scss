@@ -1,0 +1,88 @@
+.portfolio{
+    @extend .about;
+    &_content{
+        @extend .about;
+        padding: 80px 0;
+    }
+    &_tabs{
+        @extend .about;
+        @include flex(flex, null, null, column);
+        &-link{
+            @include flex(flex);
+            @extend .about;
+            border-bottom: 2px solid #cccccc;
+            margin: 30px 0 50px 0;
+            .tab{
+                padding: 14px 17px;
+                @include text($dark-text, 18px, $f500, 500, 14px);
+                position: relative;
+                margin-right: 70px;
+                &.active::before{
+                    position: absolute;
+                    content: '';
+                    @include wh(100%, 2px);
+                    background: $red;
+                    bottom: -2px;
+                    left: 0;
+                }
+            }
+        }
+        &-content{
+            @extend .about;
+            @include flex(flex, $jcsb, null, null, wrap);
+            
+        }
+    }
+    &_item{
+        @include wh(32%, 300px, null, min-);
+        margin-bottom: 20px;
+        @include media(992){
+            @include wh(100%, 100px, null, min-);
+            @include flex(flex);
+            &:nth-of-type(2n + 1){
+                flex-direction: row-reverse;
+            }
+        }
+
+        &-img{
+            @include wh(100%, 220px);
+            background: $red;
+            img{
+                @include wh(100%, 100%);
+                object-fit: cover;
+            }
+        }
+        &-text{
+            @include wh(100%, 130px);
+            background: $dark;
+            @include text(#fff, null, $f500, 500);
+            padding: 15px;
+            @include media(992){
+                @include wh(100%, 100%);
+                @include flex(flex, $flex-c, $flex-c, column);
+                padding: 0;
+            }
+            h4{
+                @include text(null, 22px, null, 500);
+            }
+            p{
+                @include text(null, 16px, null, 500, 11px);
+                margin: 10px 0 30px 0;
+                opacity:  0.8;
+            }
+            .read-more{
+                @include text(#fff, 14px, $f400, 400);
+                padding: 5px 0;
+                border-bottom: 1px solid #ffffff;
+                i{
+                    font-size: 11px;
+                    margin-left: 10px;
+                }
+            }
+        }
+    }
+}
+
+@keyframes fadeEffect{
+    
+}

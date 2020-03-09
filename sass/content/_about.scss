@@ -1,0 +1,62 @@
+.about{
+    @include wh(100%);
+    background: $fff-text;
+    &_content{
+        @extend .about;
+        @include flex(flex, $jcsb);
+        padding: 80px 0;
+        border-bottom: 2px solid $b-color;
+        &-text{
+            @include wh(50%);
+            @include flex(flex, null, null, column);
+            @include media(768){
+                width: 100%;
+            }
+            p{
+                @include text($dark-text, 14px, $f500, 500, 24px);
+                opacity: 0.8;
+                margin: 30px 0;
+            }
+            li{
+                background: #f9f9f9;
+                padding: 20px 0;
+                border-bottom: 1px solid #e0e0e0;
+                @include text($dark-text, 18px, $f500, 500, 13px);
+                @include media(480){
+                    font-size: 15px;
+                    padding: 10px 0;
+                }
+                span{
+                    @include text(null, null, $f600, 600);
+                }
+            }
+        }
+        &-img{
+            @include wh(40%);
+            @include media(768){
+                display: none;
+            }
+            img{
+                @include wh(100%, 465px);
+                object-fit: cover;
+                object-position: top;
+            }
+        }
+    }
+}
+.slogan{
+    @include text($dark-text, 32px, $f600, 600, 24px);
+    padding-bottom: 21px;
+    position: relative;
+    @include media(768){
+        font-size: 30px;
+    }
+    &::before{
+        position: absolute;
+        content: '';
+        @include wh(76px, 2px);
+        background: $red;
+        bottom: 0;
+        left: 0;
+    }
+}

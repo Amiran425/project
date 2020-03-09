@@ -1,0 +1,85 @@
+html{
+    &::-webkit-scrollbar{
+        width: 5px;
+        background: $dark;
+    }
+    &::-webkit-scrollbar-thumb{
+        background: $red;
+        border-radius: 10px;
+    }
+}
+
+.menu{
+    @include wh(30%, 100vh);
+    position: fixed;
+    overflow-y: scroll;
+    left: 0;
+    top: 0;
+    background: $dark;
+    transition: transform 0.5s;
+    z-index: 20;
+    transform: translateX(-100%);
+    @include media(768){
+        @include wh(50%);
+    }
+    @include media(480){
+        @include wh(100%);
+    }
+    &.active{
+        transform: translateX(-0%);
+    }
+    &_user{
+        @include wh(100%, 250px);
+        position: relative;
+        img{
+            @include wh(100%, 100%);
+            @include flex(flex);
+            object-fit: cover;
+            object-position: top;
+        }
+        &-text{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            @include wh(100%);
+            padding: 0 0 16px 30px;
+            h4{
+                @include text($fff-text, 32px, $f500, 500, 23px);
+                margin-bottom: 16px;
+            }
+            p{
+                @include text($fff-text, 16px, $f500, 500, 14px);
+            }
+        }
+    }
+    &_list{
+        @include wh(100%);
+        a{
+            @include wh(100%);
+            padding: 21px 31px;
+            @include flex(flex);
+            @include text($fff-text, 22px, $f500, 500, 15px);
+            border-bottom: 2px solid #282835;
+            @include media(480){
+                @include text(null, 15px);
+                padding: 10px 31px;
+            }
+        }
+    }
+    &::-webkit-scrollbar{
+        width: 0;
+    }
+    &_btn{
+        position: absolute;
+        left: 30px;
+        top: 10px;
+        @include wh(30px, 30px);
+        cursor: pointer;
+        z-index: 1;
+        @include text($red, 30px,);
+        text-shadow: 0 0 3px #000000;
+        background: transparent;
+        border: none;
+        outline: none;
+    }
+}

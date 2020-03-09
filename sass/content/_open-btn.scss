@@ -1,0 +1,41 @@
+.open{
+    @include wh(100%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    padding: 20px;
+    background: transparent;
+    transition: all 0.5s;
+    &.active{
+        background: $dark;
+        padding: 10px;
+    }
+    &_btn-menu{
+        @include wh(55px, 34px);
+        cursor: pointer;
+        @include flex(flex, $flex-c, $flex-c);
+        background: transparent;
+        border: none;
+        outline: none;
+        span{
+            @include wh(100%, 5px);
+            background: $red;
+            position: relative;
+            &::before,
+            &::after{
+                @include wh(100%, 5px);
+                position: absolute;
+                content: '';
+                background: $red;
+                left: 0;
+            }
+            &::before{
+                top: -12px;
+            }
+            &::after{
+                bottom: -12px;
+            }
+        }
+    }
+}

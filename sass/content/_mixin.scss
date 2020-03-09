@@ -1,0 +1,42 @@
+// ==============
+$dark: #353541;
+$red: #fb6470;
+$dark-text: #3e3e3e;
+$fff-text: #ffffff;
+$b-color: #acacac;
+$bg-grey: #f9f9f9;
+// ==============
+$flex-c: center;
+$flex-e: flex-end;
+$flex-s: flex-start;
+$jcsb: space-between;
+$jcsa: space-around;
+// ==============
+$f400: 'raleway-r';
+$f500: 'raleway-m';
+$f600: 'raleway-sb';
+// ==============
+@mixin media($mw) {
+    @media (max-width: #{$mw}px) {
+        @content;
+    }
+}
+@mixin wh($w: null, $h: null, $mw: null, $mh: null) {
+    #{$mw}width: $w;
+    #{$mh}height: $h;
+}
+@mixin text($color: null, $fz: null, $ff: null, $fw: null, $lh: null, $fs: null) {
+    color: $color;
+    font-size: $fz;
+    font-family: $ff;
+    font-weight: $fw;
+    line-height: $lh;
+    font-style: $fs;
+}
+@mixin flex($d: null, $jc: null, $ai: null, $fd: null, $fw: null) {
+    display: $d;
+    justify-content: $jc;
+    align-items: $ai;
+    flex-direction: $fd;
+    flex-wrap: $fw;
+}

@@ -1,0 +1,105 @@
+.contacts{
+    @extend .about;
+    &_content{
+        @extend .about_content;
+        flex-wrap: wrap;
+        &-form{
+            @include wh(50%);
+            @include media(768){
+                width: 100%;
+            }
+            h4{
+                @include text($dark-text, 22px, $f500, 500, 17px);
+                margin-bottom: 27px;
+            }
+            .form{
+                @extend .about;
+                @include flex(flex, null, null, null, wrap);
+                &_input{
+                    @include wh(50%);
+                    @include flex(flex, null, $flex-e, column);
+                    padding-right: 10px;
+                    @include media(992){
+                        width: 100%;
+                        padding: 0;
+                    }
+                    input{
+                        @include wh(100%, 35px);
+                        border: 1px solid $dark;
+                        margin-bottom: 20px;
+                        padding-left: 12px;
+                        @include text($dark-text, 14px, $f500, 500, null, italic);
+                        outline: none;
+                        background: transparent;
+                    }
+                }
+                &_text{
+                    @extend .form_input;
+                    padding-right: 0;
+                    padding-left: 10px;
+                    textarea{
+                        @include wh(100%, 145px);
+                        border: 1px solid $dark;
+                        margin-bottom: 20px;
+                        padding: 8px 12px;
+                        @include text($dark-text, 14px, $f500, 500, null, italic);
+                        outline: none;
+                        background: transparent;
+                        resize: none;
+                        &::-webkit-scrollbar{
+                            width: 5px;
+                        }
+                        &::-webkit-scrollbar-thumb{
+                            background: $red;
+                            border-radius: 10px;
+                        }
+                    }
+                    &-btn{
+                        @extend .header_text-call;
+                        cursor: pointer;
+                        border: none;
+                        border-radius: 0;
+                        padding: 11px 18px;
+                        font-size: 16px;
+                        box-shadow: none;
+                    }
+                }
+            }
+        }
+        &-location{
+            @include wh(40%);
+            @include flex(flex, null, null, column);
+            @include media(992){
+                width: 48%;
+                padding-top: 50px;
+            }
+            @include media(768){
+                width: 100%;
+                padding-top: 20px;
+            }
+        }
+    }
+    &_items{
+        @extend .about;
+        @include flex(flex, null, $flex-c);
+        margin-bottom: 35px;
+        &-icon{
+            @include wh(53px, 53px);
+            @include text($dark-text, 30px);
+            @include flex(flex, $flex-c, $flex-c);
+            margin-right: 10px;
+        }
+        &-text{
+            @include text($dark-text, null, $f500);
+            @include wh(80%);
+            h5{
+                @include text(null, 22px, null, 500, 17px);
+                margin-bottom: 24px;
+            }
+            p{
+                @include text(null, 16px, null, 500);
+                opacity:  0.8;
+            }
+        }
+    }
+}

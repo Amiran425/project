@@ -1,0 +1,48 @@
+.container{
+    @include wh(1140px, null, max-);
+    @include wh(90%);
+    margin: 0 auto;
+}
+.header{
+    @include wh(100%, 100vh, null, min-);
+    @include flex(flex, $flex-c, $flex-c);
+    background: url('../../images/header.png') no-repeat center top;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    &_text{
+        @include wh(650px, null, max-);
+        @include wh(80%);
+        @include flex(flex, $flex-c, $flex-c, column);
+        text-align: center;
+        h1{
+            @include text($fff-text, 48px, $f600, 600);
+            @include media(768){
+                font-size: 35px;
+            }
+            @include media(480){
+                font-size: 28px;
+            }
+        }
+        p{
+            @include text($fff-text, 14px, $f500, 500, 30px);
+            opacity: 0.75;
+            padding: 0 10%;
+            margin: 15px 0 40px 0;
+        }
+        &-call{
+            padding: 17px 44px;
+            @include text($fff-text, 22px, $f500, 500, 16px);
+            background: $red;
+            border-radius: 7px;
+            box-shadow: 0 0 3px 1px #ffffff;
+            transition: box-shadow 0.5s;
+            @include media(480){
+                padding: 14px 22px;
+            }
+            &:hover{
+                box-shadow: 0 0 0 0 #ffffff;
+            }
+        }
+    }
+}
